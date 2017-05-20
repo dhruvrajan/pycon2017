@@ -1,0 +1,40 @@
+* Keynote: Jake Vanderplass
+  - Use iPython notebooks for great good
+  - In astronomy, data looks like small fluctuations in spectra and light intensity
+  - New telescope with wide field of view is about to change astronomy
+  - Expanding universe
+  - iPython notebooks are great since they allow /skepticism/ and
+    testing by all individuals, as well as allowing a way for
+    new people to learn exactly what research looks like
+  - Open source data can then allow people to conduct their
+    own research at home.
+* In Memory Event Resequencing: Realistic Testing for Impossible Bugs
+  - Write tests for parallel code using asyncio, since otherwise
+    your tests are not complete, do not cover the complete bug space
+
+* Debugging in Python 3.6
+  - Elizaveta, JetBrains
+  - To find bugs, use print statements, logs, fancy debuggers
+  - Why not use debuggers universally? 30 times slower
+  - Tracing Debugger
+    - sys.settrace(tracefunc(frame, event, arg)) set the system tracing function
+  - Debuggers
+    - Breakpoints
+      - suspend program when line=breakline
+    - Stepping
+      - handle events for stepping
+    - Problem: Calling tracing function on every line is expensive
+  - Python 3.6
+    - New frame evaluation API PEP 523 allows:
+      - Handle evaluation of frames with function pointers
+      - New field to code objects
+    - Replace tracing function with frame evaluation function
+    - Break Points
+      - Insert breakpoint's code into frame's bytecode
+      - Update offsets
+      - Python Bytecode modification (import dis, dis.dis), 200 lines
+    - Stepping
+      - Insert temp breakpoint on every line, use old tracing function
+    - Works well for single-frame code. What if code enters new frames
+      at every step in a loop?
+      - Mark frames without breakpoints
