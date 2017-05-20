@@ -11,6 +11,15 @@
 * In Memory Event Resequencing: Realistic Testing for Impossible Bugs
   - Write tests for parallel code using asyncio, since otherwise
     your tests are not complete, do not cover the complete bug space
+* Writing Immutable Code in Python
+  - Two ways in which people write code:
+    - pass in large objects, mutate them
+    - pass in immutable objects as information, return /new/ information
+    - The latter is better since it allows you to think locally about
+      the code you are writing, disregard overarching effects
+    - Example: TicTacToe
+      - Use tuples instead of lists
+      - Make use of named tuples as opposed to classes when appropriate
 
 * Debugging in Python 3.6
   - Elizaveta, JetBrains
