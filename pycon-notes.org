@@ -11,6 +11,29 @@
 * In Memory Event Resequencing: Realistic Testing for Impossible Bugs
   - Write tests for parallel code using asyncio, since otherwise
     your tests are not complete, do not cover the complete bug space
+* When the Abyss gazese back
+  - David Wolever
+  - Why is 'x' in ('x',) faster than 'x' == 'x'? (Stack overflow)
+  - ipython: %timeit
+  - dis.disassemble
+    - Python has a compiler run over all .py files
+    - function objects
+      - dir(func_object) -> attribute func_code
+	- function name
+	- file defined
+	- line number
+	- co_code
+	  - bytestring containing compiled bytecode that would appear in .pyc file
+	- func_closure
+	  - tuple of all variables that are being closed over (actually cells referencing variables ...)
+	  - Homework: why does func_closure only have one value?
+    - Binary Modulo
+    - Aside: Stack Machines
+      - instructions pass values by pushing/popping off of stack
+      - vs register machine
+  - peephole.c Allison Kaptur article
+  - ceval.c contains the 
+
 * Writing Immutable Code in Python
   - Two ways in which people write code:
     - pass in large objects, mutate them
